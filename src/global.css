@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card-width: 400px;
+}
+
+html {
+  @apply h-full;
+}
+
+body {
+  @apply h-full;
+}
+
+.qw-container {
+  @apply container mx-auto min-h-full flex flex-col items-center justify-center;
+}
+
+.qw-demo-entries {
+ @apply flex w-[var(--card-width)] max-w-full flex-col gap-2;
+}
+
+.qw-demo-entry {
+  @apply p-4 rounded bg-slate-100 transition-colors;
+  &--active {
+    @apply bg-rose-700 shadow;
+  }
+  &__link {
+    @apply text-rose-700 block;
+  }
+  &__description {
+    @apply mt-2;
+  }
+  &--active &__link, &--active &__description {
+    @apply text-white;
+  }
+}
+
+.qw-card {
+  @apply w-[var(--card-width)] bg-slate-100 p-4 my-4;
+}
+.qw-card__under {
+  @apply w-[var(--card-width)] px-4 mb-4;
+}
+
+.qw-link {
+  @apply text-rose-800 hover:text-rose-700 hover:underline;
+}
+
+.qw-button {
+  @apply px-3 py-1 bg-rose-500 text-white rounded-lg hover:bg-rose-700 transition-colors;
+}
+
+.qw-todo {
+  @apply flex items-center p-1 px-3 hover:bg-slate-50;
+  &__delete {
+    @apply opacity-0 transition-opacity text-xl text-gray-500 hover:text-gray-700;
+  }
+  &:hover &__delete {
+    @apply opacity-100;
+  }
+}
