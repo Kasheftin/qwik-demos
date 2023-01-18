@@ -283,24 +283,24 @@ export enum UserStatus {
   User = 'user'
 }
 
-export type AuthUserFragment = { __typename?: 'User', id: number, username: string, email: string, status: UserStatus };
+export type AuthUserFragment = { __typename?: 'User', id: number, username: string, email: string };
 
 export type SigninLocalMutationVariables = Exact<{
   data: SigninLocalDto;
 }>;
 
 
-export type SigninLocalMutation = { __typename?: 'Mutation', signinLocal: { __typename?: 'User', id: number, username: string, email: string, status: UserStatus } };
+export type SigninLocalMutation = { __typename?: 'Mutation', signinLocal: { __typename?: 'User', id: number, username: string, email: string } };
 
 export type SignOutMutationVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SignOutMutation = { __typename?: 'Mutation', signOut: { __typename?: 'User', id: number, username: string, email: string, status: UserStatus } };
+export type SignOutMutation = { __typename?: 'Mutation', signOut: { __typename?: 'User', id: number, username: string, email: string } };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MeQuery = { __typename?: 'Query', me: { __typename?: 'User', id: number, username: string, email: string, status: UserStatus } };
+export type MeQuery = { __typename?: 'Query', me: { __typename?: 'User', id: number, username: string, email: string } };
 
 export type CommentListEntryFragment = { __typename?: 'Comment', id: number, userId: number, userName: string, targetType: CommentTargetType, targetId: number, text: string, status: CommentStatus, createdAt: number, target?: { __typename?: 'Publication', id: number, title: string, domain: string } | null, user?: { __typename?: 'User', id: number, username: string, email: string, status: UserStatus } | null };
 
@@ -382,7 +382,6 @@ export const AuthUserFragmentDoc = gql`
   id
   username
   email
-  status
 }
     `;
 export const CommentTargetFragmentDoc = gql`

@@ -2,7 +2,6 @@ fragment AuthUser on User {
   id
   username
   email
-  status
 }
 
 mutation SigninLocal($data: SigninLocalDto!) {

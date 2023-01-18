@@ -1,8 +1,13 @@
-import { component$, Slot } from '@builder.io/qwik'
+import { component$, Slot, useTask$ } from '@builder.io/qwik'
 import { type DocumentHead, Link } from '@builder.io/qwik-city'
 import { demos } from '@/constants'
 
 export default component$(() => {
+
+  useTask$(async () => {
+    console.log('Layout use task')
+  })
+
   return (
     <div class="qw-container">
       <div class="qw-card">
