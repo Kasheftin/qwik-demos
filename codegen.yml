@@ -1,0 +1,12 @@
+overwrite: true
+schema: "http://localhost:56997/graphql"
+documents: "src/api/queries/*.gql"
+generates:
+  src/api/generated/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+config:
+  scalars: 
+    ID: number

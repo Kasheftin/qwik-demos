@@ -1,0 +1,42 @@
+fragment CommentListEntry on Comment {
+  id
+  userId
+  userName
+  targetType
+  targetId
+  text
+  status
+  createdAt
+  target {
+    ...CommentTarget
+  }
+  user {
+    ...CommentUser
+  }
+}
+
+fragment CommentTarget on Publication {
+  id
+  title
+  domain
+}
+
+fragment CommentUser on User {
+  id 
+  username
+  email
+  status
+}
+
+query Comments($data: GetCommentsDto!) {
+  comments(data: $data) {
+    ...CommentListEntry
+  }
+}
+
+mutation UpdateCommentStatus($data: UpdateCommentStatusDto!) {
+  updateCommentStatus(data: $data) {
+    id
+    status
+  }
+}

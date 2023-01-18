@@ -12,6 +12,10 @@
 - how layout & routing works: (demos) folder; passing data to title.
 - todo: load, do some stuff, then copy/paste html.
 
+- qwik is different. 
+    - react/vue care about state and rendering only. Bundling: webpack/vite, ssr: nuxt/next/vue ssr, etc. everything else is secondary.
+    - qwik cares about the full flow: how to bundle, ssr, deliver, and get 100% score on google. 
+
 
 # Qwik City App ⚡️
 

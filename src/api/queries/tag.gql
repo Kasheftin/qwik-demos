@@ -1,0 +1,16 @@
+fragment TagEntry on Tag {
+  id
+  name
+}
+
+query Tags($data: GetTagsDto!) {
+  tags(data: $data) {
+    ...TagEntry
+  }
+}
+
+query SearchTags($data: SearchTagsDto!) {
+  searchTags(data: $data) {
+    ...TagEntry
+  }
+}

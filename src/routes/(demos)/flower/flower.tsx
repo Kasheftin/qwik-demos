@@ -11,6 +11,7 @@ export default component$(() => {
     number: 20,
   });
 
+  // The default effect: don't execute anything inside useClientEffect$ until it becomes visible
   useClientEffect$(({ cleanup }) => {
     console.log('useClientEffect start')
     const timeout = setTimeout(() => (state.count = 1), 500)

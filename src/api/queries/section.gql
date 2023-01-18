@@ -1,0 +1,12 @@
+fragment SectionEntry on Section {
+  id
+  parentId
+  name
+  rank
+}
+
+query Sections {
+  sections {
+    ...SectionEntry
+  }
+}

@@ -1,0 +1,49 @@
+fragment PublicationListEntry on Publication {
+  id
+  title
+  anounceText
+  anounceImage
+  domain
+  status
+  updatedAt
+  publishedAt
+  commentsCount
+}
+
+fragment PublicationEntry on Publication {
+  id
+  title
+  text
+  format
+  status
+  tags {
+    ...TagEntry
+  }
+  sections {
+    ...SectionEntry
+  }
+}
+
+query Publications($data: GetPublicationsDto!) {
+  publications(data: $data) {
+    ...PublicationListEntry
+  }
+}
+
+query Publication($data: GetPublicationDto!) {
+  publication(data: $data) {
+    ...PublicationEntry
+  }
+}
+
+mutation UpdatePublication($data: UpdatePublicationDto!) {
+  updatePublication(data: $data) {
+    ...PublicationEntry
+  }
+}
+
+mutation DeletePublication($data: DeletePublicationDto!) {
+  deletePublication(data: $data) {
+    ...PublicationEntry
+  }
+}

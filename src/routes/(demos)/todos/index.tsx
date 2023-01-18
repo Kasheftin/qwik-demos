@@ -41,9 +41,7 @@ export default component$(() => {
     store.todos = store.todos.filter(todo => todo.id !== id)
   })
 
-  /* Instead of this: 
-  const filteredTodos = store.todos.filter((todo) => {
-    console.log('filter run')
+  const filterTodo = (todo: Todo) => {
     if (store.filter.showNotCompletedOnly && todo.isCompleted) {
       return false
     }
@@ -51,11 +49,9 @@ export default component$(() => {
       return todo.title.toLowerCase().includes(store.filter.search.toLowerCase())
     }
     return true
-  })
-  Do this: separate the filtering function and move it into $:
-  */
+  }
 
-  const filterTodo = $((todo: Todo) => {
+  const filterTodo2 = $((todo: Todo) => {
     if (store.filter.showNotCompletedOnly && todo.isCompleted) {
       return false
     }
@@ -66,6 +62,9 @@ export default component$(() => {
   })
 
   const filteredTodos = store.todos.filter(filterTodo)
+
+  // Why this does not work?
+  const filteredTodos2 = store.todos.filter(filterTodo2)
 
   return (
     <div>
@@ -105,10 +104,10 @@ export default component$(() => {
       {store.todoListIsVisible ? (
         <div>
           <div class="text-xl">
-            Todo List
+            Todo List {filteredTodos.length} {filteredTodos2.length}
           </div>
           <div class="p-3 flex flex-col gap-3">
-            {filteredTodos.map((todo) => (
+            {filteredTodos.filter(filterTodo).map((todo) => (
               <TodoEntry
                 key={todo.id}
                 todo={todo}

@@ -18,11 +18,18 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.16.2",
     "@builder.io/qwik-city": "0.0.128",
+    "@graphql-codegen/cli": "^2.16.4",
+    "@graphql-codegen/typed-document-node": "^2.3.12",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-graphql-request": "^4.5.8",
+    "@graphql-codegen/typescript-operations": "^2.5.12",
+    "@graphql-typed-document-node/core": "^3.1.1",
     "@types/eslint": "8.4.10",
     "@types/node": "^18.11.18",
     "@types/node-fetch": "latest",
@@ -43,5 +50,9 @@
     "undici": "5.14.0",
     "vite": "4.0.3",
     "vite-tsconfig-paths": "3.5.0"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.4",
+    "graphql-request": "^5.1.0"
   }
 }

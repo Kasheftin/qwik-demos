@@ -1,0 +1,25 @@
+fragment AuthUser on User {
+  id
+  username
+  email
+  status
+}
+
+mutation SigninLocal($data: SigninLocalDto!) {
+  signinLocal(data: $data) {
+    ...AuthUser
+  }
+}
+
+mutation SignOut {
+  signOut {
+    ...AuthUser
+  }
+}
+
+query Me {
+  me {
+    ...AuthUser
+  }
+}
+
